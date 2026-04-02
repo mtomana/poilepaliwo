@@ -77,7 +77,8 @@
       padding: 0.75rem 0.9rem;
       font-size: 0.95rem;
       border: 1px solid transparent;
-      display: inline-block;
+      display: block;
+      width: 100%;
       margin-top: 12px;
     }
 
@@ -247,7 +248,7 @@
       position: relative;
       z-index: 1;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 12px;
       align-items: flex-end;
     }
@@ -255,10 +256,34 @@
     .price-side {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       gap: 7px;
       padding-bottom: 8px;
-      min-width: 108px;
+      min-width: 0;
+    }
+
+    .online-led {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 rgba(34, 197, 94, 0.6);
+      animation: ledPulse 2.1s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes ledPulse {
+      0%, 100% {
+        opacity: 0.55;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.2);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 10px 2px rgba(34, 197, 94, 0.45);
+      }
     }
 
     .unit {
@@ -383,6 +408,7 @@
 
     <section class="prices">
       <article class="price-card pb95">
+        <span class="online-led" aria-hidden="true"></span>
         <div class="fuel-code">PB95</div>
         <div class="price-main">
           <p class="price" id="pb95Price"></p>
@@ -397,6 +423,7 @@
       </article>
 
       <article class="price-card pb98">
+        <span class="online-led" aria-hidden="true"></span>
         <div class="fuel-code">PB98</div>
         <div class="price-main">
           <p class="price" id="pb98Price"></p>
@@ -411,6 +438,7 @@
       </article>
 
       <article class="price-card on">
+        <span class="online-led" aria-hidden="true"></span>
         <div class="fuel-code">ON</div>
         <div class="price-main">
           <p class="price" id="onPrice"></p>
@@ -517,7 +545,7 @@
     const waitMessage = document.getElementById('waitMessage');
 
     if (DATA.knownForTomorrow) {
-      statusBadge.classList.add('ready');
+      statusBox.classList.add('ok');
       statusText.textContent = 'Ceny na jutro już znane!';
       subtitle.textContent = 'Aktualne stawki na najbliższy dzień obowiązywania.';
       waitMessage.textContent = 'Nowe stawki są już opublikowane i gotowe do odczytu.';
