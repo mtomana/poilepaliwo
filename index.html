@@ -376,7 +376,7 @@
 
   <script>
     const DATA = {
-      knownForTomorrow: true,
+      knownForTomorrow: false,
       effectiveFrom: '2026-04-03',
       publishedAt: '2026-04-02, 14:37',
       noticeTitle: 'Monitor Polski 2026 poz. 348',
@@ -387,12 +387,10 @@
         on: 6.09,
       },
       history: [
-        { date: '28.03', pb95: 6.11, pb98: 6.66, on: 6.20 },
-        { date: '29.03', pb95: 6.12, pb98: 6.67, on: 6.22 },
-        { date: '30.03', pb95: 6.15, pb98: 6.70, on: 6.24 },
-        { date: '31.03', pb95: 6.16, pb98: 6.71, on: 6.26 },
-        { date: '01.04', pb95: 6.18, pb98: 6.73, on: 6.27 },
-        { date: '02.04', pb95: 6.19, pb98: 6.74, on: 6.29 },
+        { date: '31.03', pb95: 6.16, pb98: 6.76, on: 7.60 },
+        { date: '01.04', pb95: 6.21, pb98: 6.81, on: 7.66 },
+        { date: '02.04', pb95: 6.23, pb98: 6.84, on: 7.65 },
+        { date: '03.04', pb95: 6.19, pb98: 6.80, on: 7.64 },
       ]
     };
 
@@ -441,7 +439,7 @@
 
     if (DATA.knownForTomorrow) {
       statusBadge.classList.add('ready');
-      statusText.textContent = 'Jutro już znane';
+      statusText.textContent = 'Ceny na jutro już znane!';
       subtitle.textContent = 'Aktualne stawki na najbliższy dzień obowiązywania.';
       waitMessage.textContent = 'Nowe stawki są już opublikowane i gotowe do odczytu.';
     } else {
