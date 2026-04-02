@@ -246,6 +246,17 @@
       font-size: 0.95rem;
     }
 
+    .change {
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .change.up { color: #16a34a; }
+    .change.down { color: #dc2626; }
+
     .history {
       padding: 22px 22px 18px;
     }
@@ -334,18 +345,21 @@
         <div class="fuel-code">PB95</div>
         <p class="price" id="pb95Price"></p>
         <div class="unit">zł / litr</div>
+        <div class="change" id="pb95Change"></div>
       </article>
 
       <article class="price-card pb98">
         <div class="fuel-code">PB98</div>
         <p class="price" id="pb98Price"></p>
         <div class="unit">zł / litr</div>
+        <div class="change" id="pb98Change"></div>
       </article>
 
       <article class="price-card on">
         <div class="fuel-code">ON</div>
         <p class="price" id="onPrice"></p>
         <div class="unit">zł / litr</div>
+        <div class="change" id="onChange"></div>
       </article>
     </section>
 
@@ -383,10 +397,37 @@
     };
 
     const fmtPrice = (value) => value.toFixed(2).replace('.', ',');
+    const fmtDiff = (value) => value.toFixed(2).replace('.', ',');
 
     document.getElementById('pb95Price').textContent = fmtPrice(DATA.prices.pb95);
     document.getElementById('pb98Price').textContent = fmtPrice(DATA.prices.pb98);
     document.getElementById('onPrice').textContent = fmtPrice(DATA.prices.on);
+
+    function setPriceChange(priceId, key) {
+      const target = document.getElementById(priceId);
+      const prev = DATA.history.at(-2)?.[key];
+      const current = DATA.prices[key];
+
+      if (typeof prev !== 'number' || typeof current !== 'number') {
+        target.textContent = 'bez zmian';
+        return;
+      }
+
+      const diff = current - prev;
+      if (Math.abs(diff) < 0.005) {
+        target.textContent = 'bez zmian';
+      } else if (diff > 0) {
+        target.textContent = `+${fmtDiff(diff)} zł`;
+        target.classList.add('up');
+      } else {
+        target.textContent = `${fmtDiff(diff)} zł`;
+        target.classList.add('down');
+      }
+    }
+
+    setPriceChange('pb95Change', 'pb95');
+    setPriceChange('pb98Change', 'pb98');
+    setPriceChange('onChange', 'on');
 
     document.getElementById('effectiveFrom').textContent = DATA.effectiveFrom;
     document.getElementById('noticeTitle').textContent = DATA.noticeTitle;
