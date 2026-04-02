@@ -77,7 +77,8 @@
       padding: 0.75rem 0.9rem;
       font-size: 0.95rem;
       border: 1px solid transparent;
-      display: inline-block;
+      display: block;
+      width: 100%;
       margin-top: 12px;
     }
 
@@ -93,6 +94,32 @@
       color: #9a3412;
     }
 
+
+
+    .online-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2), 0 0 10px rgba(34, 197, 94, 0.4);
+      animation: onlinePulse 2.2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes onlinePulse {
+      0%, 100% {
+        opacity: 0.35;
+        box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.12), 0 0 6px rgba(34, 197, 94, 0.22);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18), 0 0 14px rgba(34, 197, 94, 0.48);
+      }
+    }
+
     .panel {
       background: var(--panel);
       border: 1px solid rgba(255,255,255,0.7);
@@ -102,6 +129,7 @@
     }
 
     .top {
+      position: relative;
       padding: 26px;
       margin-bottom: 18px;
     }
@@ -247,8 +275,7 @@
       position: relative;
       z-index: 1;
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-end;
     }
 
@@ -258,7 +285,7 @@
       align-items: flex-end;
       gap: 7px;
       padding-bottom: 8px;
-      min-width: 108px;
+      min-width: 94px;
     }
 
     .unit {
@@ -354,6 +381,7 @@
 <body>
   <div class="wrap">
     <section class="top panel">
+      <span class="online-badge" aria-label="Dane online" title="Dane online"></span>
       <div class="hero">
         <div>
           <h1 class="title">Ceny paliw</h1>
