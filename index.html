@@ -81,7 +81,7 @@
       margin-top: 12px;
     }
 
-    .status.ok {
+    .status.ready {
       background: rgba(22, 163, 74, 0.1);
       border-color: rgba(22, 163, 74, 0.25);
       color: #166534;
@@ -357,7 +357,7 @@
       <div class="hero">
         <div>
           <h1 class="title">Ceny paliw</h1>
-          <p class="subtitle" id="subtitle"></p>
+          <p class="subtitle" id="subtitle">Po ile jutro zatankujesz benzynę, olej napędowy? Czy opłaca się czekać?</p>
           <div class="status" id="statusBox">
             <span id="statusText"></span>
           </div>
@@ -372,7 +372,7 @@
         </div>
 
         <div class="meta-card">
-          <div class="eyebrow">Ostatnie obwieszczenie <span class="eyebrow-date" id="publishedAtDate"></span></div>
+          <div class="eyebrow">Ostatnie obwieszczenie · <span class="eyebrow-date" id="publishedAtDate"></span></div>
           <p class="notice-title">
             <span id="noticeTitle"></span>
             <a class="notice-link" id="noticeLink" href="#" target="_blank" rel="noopener noreferrer">Zobacz w Monitorze Polskim</a>
@@ -509,23 +509,21 @@
     document.getElementById('effectiveFrom').textContent = DATA.effectiveFrom;
     document.getElementById('noticeTitle').textContent = DATA.noticeTitle;
     document.getElementById('noticeLink').href = DATA.noticeUrl;
-    document.getElementById('publishedAtDate').textContent = DATA.publishedAt.split(',')[0];
+    document.getElementById('publishedAtDate').textContent = DATA.publishedAt; //.split(',')[0];
 
     const statusBox = document.getElementById('statusBox');
     const statusText = document.getElementById('statusText');
-    const subtitle = document.getElementById('subtitle');
+    
     const waitMessage = document.getElementById('waitMessage');
 
     if (DATA.knownForTomorrow) {
-      statusBadge.classList.add('ready');
-      statusText.textContent = 'Ceny na jutro już znane!';
-      subtitle.textContent = 'Aktualne stawki na najbliższy dzień obowiązywania.';
-      waitMessage.textContent = 'Nowe stawki są już opublikowane i gotowe do odczytu.';
+      statusBox.classList.add('ready');
+      statusText.textContent = 'Nowe ceny na jutro są już dostępne ✅';
+      //waitMessage.textContent = 'Nowe stawki są już opublikowane i gotowe do odczytu.';
     } else {
       statusBox.classList.add('waiting');
-      statusText.textContent = 'Czekamy na jutro';
-      subtitle.textContent = 'Nowe stawki pojawiają się dzień wcześniej, ale o różnej porze.';
-      waitMessage.textContent = 'Na jutro jeszcze nie ma nowego obwieszczenia. Warto zajrzeć ponownie później.';
+      statusText.textContent = 'Czekamy na publikację cen na kolejny dzień – sprawdź ponownie później ⏳';
+      //waitMessage.textContent = 'Na jutro jeszcze nie ma nowego obwieszczenia. Warto zajrzeć ponownie później.';
     }
 
     function drawChart(canvas, series) {
