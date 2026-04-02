@@ -359,23 +359,46 @@
         align-items: flex-start;
       }
 
-      .meta,
-      .prices {
+      .meta {
         grid-template-columns: 1fr;
       }
 
+      .prices {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
       .price-card {
-        min-height: 164px;
+        min-height: 0;
+        padding: 18px 12px 14px;
+        border-radius: var(--radius-md);
       }
 
       .price-main {
         flex-direction: column;
         align-items: flex-start;
+        gap: 8px;
       }
 
       .price-side {
         align-items: flex-start;
         min-width: 0;
+        gap: 5px;
+      }
+
+      .fuel-code {
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+      }
+
+      .price {
+        font-size: clamp(1.35rem, 7vw, 2rem);
+      }
+
+      .unit,
+      .change {
+        font-size: 0.72rem;
       }
     }
   </style>
