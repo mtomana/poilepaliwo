@@ -343,7 +343,14 @@
     .history-note {
       color: var(--muted);
       font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
+
+    .history-note .fuel.pb95 { color: var(--pb95); }
+    .history-note .fuel.pb98 { color: var(--pb98); }
+    .history-note .fuel.on { color: var(--on); }
 
     .chart-wrap {
       height: 210px;
@@ -485,7 +492,13 @@
     <section class="history panel">
       <div class="history-head">
         <h2 class="history-title">Ostatnie dni</h2>
-        <div class="history-note">PB95 / PB98 / ON</div>
+        <div class="history-note">
+          <span class="fuel pb95">PB95</span>
+          <span>/</span>
+          <span class="fuel pb98">PB98</span>
+          <span>/</span>
+          <span class="fuel on">ON</span>
+        </div>
       </div>
       <div class="chart-wrap">
         <canvas id="historyChart" width="936" height="210"></canvas>
