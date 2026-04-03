@@ -358,7 +358,7 @@
     .history-note .fuel.on { color: var(--on); }
 
     .chart-wrap {
-      height: 210px;
+      height: 260px;
       position: relative;
     }
 
