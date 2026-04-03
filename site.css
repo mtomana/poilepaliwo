@@ -356,6 +356,31 @@
       display: block;
     }
 
+    .site-footer {
+      max-width: 980px;
+      margin: 16px auto 0;
+      padding: 0 4px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .footer-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(107, 114, 128, 0.45);
+      transition: border-color 160ms ease, color 160ms ease;
+    }
+
+    .footer-link:hover {
+      color: #374151;
+      border-bottom-color: rgba(55, 65, 81, 0.75);
+    }
+
     @media (max-width: 720px) {
       .hero,
       .history-head {
@@ -403,5 +428,10 @@
       .unit,
       .change {
         font-size: 0.72rem;
+      }
+
+      .site-footer {
+        margin-top: 12px;
+        font-size: 0.8rem;
       }
     }

@@ -125,6 +125,13 @@
     </section>
   </div>
 
+  <footer class="site-footer" aria-label="Stopka">
+    <p>
+      Kontakt:
+      <a id="contactEmail" class="footer-link" href="#" rel="nofollow"></a>
+    </p>
+  </footer>
+
   <script>
     
 
@@ -177,6 +184,13 @@
     setPriceChange('pb95Change', 'pb95Trend', 'pb95');
     setPriceChange('pb98Change', 'pb98Trend', 'pb98');
     setPriceChange('onChange', 'onTrend', 'on');
+
+    const contactEmailUser = String.fromCharCode(99,122,101,115,99);
+    const contactEmailDomain = String.fromCharCode(99,101,110,121,112,97,108,105,119,46,105,110,102,111);
+    const contactEmail = `${contactEmailUser}@${contactEmailDomain}`;
+    const contactEmailLink = document.getElementById('contactEmail');
+    contactEmailLink.textContent = contactEmail;
+    contactEmailLink.href = `mailto:${contactEmail}`;
 
     document.getElementById('effectiveFrom').textContent = DATA.effectiveFrom;
     document.getElementById('noticeTitle').textContent = DATA.noticeTitle;
