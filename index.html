@@ -253,7 +253,10 @@
       const values = series.flatMap((entry) => [entry.pb95, entry.pb98, entry.on]);
       const min = Math.min(...values);
       const max = Math.max(...values);
-      const range = Math.max(max - min, 0.08);
+      const axisStep = 0.5;
+      const yMin = Math.floor(min / axisStep) * axisStep;
+      const yMaxCandidate = Math.ceil(max / axisStep) * axisStep;
+      const yMax = yMaxCandidate > yMin ? yMaxCandidate : yMin + axisStep;
 
       return new Chart(canvas, {
         type: 'line',
@@ -320,12 +323,13 @@
               border: { display: false }
             },
             y: {
-              min: min - range * 0.08,
-              max: max + range * 0.08,
+              min: yMin,
+              max: yMax,
               ticks: {
                 display: true,
                 color: '#6b7280',
                 padding: 8,
+                stepSize: axisStep,
                 callback: (value) => `${fmtPrice(Number(value))} zł`,
                 font: {
                   family: 'Inter, system-ui, sans-serif',
