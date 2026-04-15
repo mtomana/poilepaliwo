@@ -1,0 +1,25 @@
+window.DATA = {
+  knownForTomorrow: true,
+  effectiveFrom: '2026-04-15',
+  publishedAt: '2026-04-14, 12:04',
+  noticeTitle: 'Monitor Polski 2026 poz. 376',
+  noticeUrl: 'https://monitorpolski.gov.pl/MP/2026/376',
+  prices: {
+    pb95: 6.16,
+    pb98: 6.70,
+    on: 7.41,
+  },
+  history: [
+    { date: '31.03', pb95: 6.16, pb98: 6.76, on: 7.60 },
+    { date: '01.04', pb95: 6.21, pb98: 6.81, on: 7.66 },
+    { date: '02.04', pb95: 6.23, pb98: 6.84, on: 7.65 },
+    { date: '03.04', pb95: 6.19, pb98: 6.80, on: 7.64 },
+    { date: '04.04', pb95: 6.21, pb98: 6.82, on: 7.87 },
+    { date: '07.04', pb95: 6.21, pb98: 6.82, on: 7.87 },
+    { date: '08.04', pb95: 6.27, pb98: 6.88, on: 7.83 },
+    { date: '09.04', pb95: 6.17, pb98: 6.77, on: 7.66 },
+    { date: '10.04', pb95: 6.14, pb98: 6.73, on: 7.68 },
+    { date: '13.04', pb95: 6.16, pb98: 6.70, on: 7.41 },
+    { date: '14.04', pb95: 6.12, pb98: 6.70, on: 7.58 },
+  ],
+};
