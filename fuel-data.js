@@ -5,9 +5,9 @@ window.DATA = {
   noticeTitle: 'Monitor Polski 2026 poz. 418',
   noticeUrl: 'https://monitorpolski.gov.pl/MP/2026/418',
   prices: {
-    pb95: 6.21,
-    pb98: 6.72,
-    on: 7.12,
+    pb95: 6.23,
+    pb98: 6.73,
+    on: 7.22,
   },
   history: [
     { date: '31.03', pb95: 6.16, pb98: 6.76, on: 7.60 },
