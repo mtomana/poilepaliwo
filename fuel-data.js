@@ -1,13 +1,13 @@
 window.DATA = {
   knownForTomorrow: true,
-  effectiveFrom: '2026-04-21',
-  publishedAt: '2026-04-18, 12:04',
-  noticeTitle: 'Monitor Polski 2026 poz. 399',
-  noticeUrl: 'https://monitorpolski.gov.pl/MP/2026/399',
+  effectiveFrom: '2026-04-27',
+  publishedAt: '2026-04-26, 12:04',
+  noticeTitle: 'Monitor Polski 2026 poz. 414',
+  noticeUrl: 'https://monitorpolski.gov.pl/MP/2026/414',
   prices: {
-    pb95: 6.00,
-    pb98: 6.54,
-    on: 6.92,
+    pb95: 6.21,
+    pb98: 6.72,
+    on: 7.12,
   },
   history: [
     { date: '31.03', pb95: 6.16, pb98: 6.76, on: 7.60 },
@@ -25,6 +25,11 @@ window.DATA = {
     { date: '16.04', pb95: 6.04, pb98: 6.59, on: 7.18 },
     { date: '17.04', pb95: 6.03, pb98: 6.57, on: 7.07 },
     { date: '20.04', pb95: 6.00, pb98: 6.54, on: 6.92 },
-    
+    { date: '21.04', pb95: 5.95, pb98: 6.50, on: 6.75 },
+    { date: '22.04', pb95: 5.97, pb98: 6.56, on: 6.71 },
+    { date: '23.04', pb95: 6.03, pb98: 6.62, on: 6.79 },
+    { date: '24.04', pb95: 6.17, pb98: 6.71, on: 7.01 },
+    { date: '27.04', pb95: 6.21, pb98: 6.72, on: 7.12 }
+
   ],
 };
